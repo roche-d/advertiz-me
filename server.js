@@ -15,6 +15,8 @@ GameServiceProcess.stdout.on('data', function(data) {
     console.log("Game PROCESS: " + data);
 });
 
-app.use(['/game', '/'], game, express.static(__dirname + '/web/www'));
+app.use('/game', game);
+app.use('/', __dirname + '/web/www');
+//app.use(['/game', '/'], game, express.static(__dirname + '/web/www'));
 
 server.listen(8080);
