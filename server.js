@@ -14,5 +14,5 @@ var SubProcess = require('child_process').spawn,
     GameServiceProcess = SubProcess('node', ['game.js']);
 
 GameServiceProcess.stdout.on('data', function(data) {
-    console.log("Game PROCESS:" + data);
+    console.log("Game PROCESS: " + data);
 });
