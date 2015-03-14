@@ -1,2 +1,2 @@
-# advertiz-me
-SaaS de vente privée locale
+# BattleCheap
+Jouez pour gagner des bons de réduction !
