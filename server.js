@@ -15,8 +15,12 @@ GameServiceProcess.startGame(game);
 
 var fs = require('fs');
 var https = require('https');
-var privateKey  = fs.readFileSync('privateKey.key', 'utf8');
-var certificate = fs.readFileSync('certificate.crt', 'utf8');
+try {
+    var privateKey = fs.readFileSync('privateKey.key', 'utf8');
+    var certificate = fs.readFileSync('certificate.crt', 'utf8');
+} catch (err) {
+
+}
 
 var credentials = {key: privateKey, cert: certificate};
 
@@ -29,9 +33,14 @@ var httpsServer = https.createServer(credentials, app);
 
 app.use(['/game/*'], game);
 app.use(['/'], express.static(__dirname + '/web/www'));
+
 try {
-    httpsServer.listen(443);
+    //httpsServer.listen(443);
 } catch (err) {
     console.log("HTTPS pas encore ready !");
 }
-server.listen(8080);
+try {
+    server.listen(8080);
+} catch (err) {
+
+}
