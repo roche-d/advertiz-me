@@ -4,6 +4,7 @@
 
 var express = require('express'),
     app = express(),
+    game = express(),
     server = require('http').createServer(app);
 
 
@@ -14,7 +15,7 @@ GameServiceProcess.stdout.on('data', function(data) {
     console.log("Game PROCESS: " + data);
 });
 
-app.use('/', express.static(__dirname + '/web/www'));
-//app.use(['/game', '/'], game, express.static(__dirname + '/web/www'));
+//app.use('/', express.static(__dirname + '/web/www'));
+app.use(['/game', '/'], game, express.static(__dirname + '/web/www'));
 
 server.listen(8080);
