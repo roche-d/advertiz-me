@@ -1,5 +1,6 @@
 {
   "name": "advertiz-me-server",
   "version": "0.0.1",
-  "description": "Advertiz Me Server"
+  "description": "Advertiz Me Server",
+  "main": "server.js"
 }
