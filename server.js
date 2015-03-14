@@ -8,4 +8,4 @@ var express = require('express'),
 
 app.use(express.static(__dirname + '/web/www'));
 
-server.listen(80);
+server.listen(8080);
