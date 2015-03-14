@@ -29,6 +29,9 @@ var httpsServer = https.createServer(credentials, app);
 
 app.use(['/game/*'], game);
 app.use(['/'], express.static(__dirname + '/web/www'));
-
-httpsServer.listen(443);
+try {
+    httpsServer.listen(443);
+} catch (err) {
+    console.log("HTTPS pas encore ready !");
+}
 server.listen(8080);
