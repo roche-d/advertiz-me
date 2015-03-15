@@ -58,9 +58,14 @@
     .main{
         background: white url('../image/shifumi-bgd_720.png') ;
     }
+
+
 }
 
 .centered{
     float: none;
     margin: 0 auto;
+}
+.navbar {
+    margin-bottom: 0px;
 }
