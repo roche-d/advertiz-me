@@ -4,14 +4,22 @@
 
 var express = require('express'),
     app = express(),
-    game = express(),
+    game = express.Router(),
+    bodyParser= require('body-parser');
     server = require('http').createServer(app);
+
+game.use(bodyParser.urlencoded({extended: true}));
+game.use(bodyParser.json());
+
+
 
 GameServiceProcess = require("./game.js");
 
-GameServiceProcess.startGame(game);
+var models = require('./db')();
 
-require('./db');
+GameServiceProcess.startGame(game, models);
+
+//var p = new models.Play();
 
 // CODE POUR HTTPS
 var fs = require('fs');
@@ -34,7 +42,16 @@ app.post('/fapp/*', function(req, res) {
 });
 
 
-app.use(['/game/*'], game);
+app.use(function(req, res, next) {
+
+    // log each request to the console
+    console.log(req.method, req.url);
+
+    // continue doing what we were doing and go to the route
+    next();
+});
+
+app.use(['/game/'], game);
 app.use(['/'], express.static(__dirname + '/web/www'));
 
 try {
