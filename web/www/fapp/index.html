@@ -48,7 +48,7 @@
                   // Otherwise, show Login dialog first.
                   FB.login(function(response) {
                       onLogin(response);
-                  }, {scope: 'user_friends, email'});
+                  }, {scope: 'email'});
               }
           });
           // ADD ADDITIONAL FACEBOOK CODE HERE
