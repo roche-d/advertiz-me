@@ -5,15 +5,15 @@
         <tr>
             <td><h3 style="margin-right: 15px">{{match.competitor.name}}</h3></td>
             <td ng-if="loading"><img src="./image/loader.gif" width="25px"/></td>
-            <td ng-if="!loading"><img ng-src="./image/{{match.competitor.selection[0] | images}}_mini.png"/></td>
-            <td ng-if="!loading"><img ng-src="./image/{{match.competitor.selection[1] | images}}_mini.png"/></td>
-            <td ng-if="!loading"><img ng-src="./image/{{match.competitor.selection[2] | images}}_mini.png"/></td>
+            <td ng-if="!loading"><img ng-src="{{match.competitor.selection[0] | images:'mini'}}"/></td>
+            <td ng-if="!loading"><img ng-src="{{match.competitor.selection[1] | images:'mini'}}"/></td>
+            <td ng-if="!loading"><img ng-src="{{match.competitor.selection[2] | images:'mini'}}"/></td>
         </tr>
         <tr>
             <td><h3 style="margin-right: 15px"> {{match.player.name}}</h3></td>
-            <td><img ng-src="./image/{{match.player.selection[0] | images}}_mini.png"/></td>
-            <td><img ng-src="./image/{{match.player.selection[1] | images}}_mini.png"/></td>
-            <td><img ng-src="./image/{{match.player.selection[2] | images}}_mini.png"/></td>
+            <td><img ng-src="{{match.player.selection[0] | images:'mini'}}"/></td>
+            <td><img ng-src="{{match.player.selection[1] | images:'mini'}}"/></td>
+            <td><img ng-src="{{match.player.selection[2] | images:'mini'}}"/></td>
         </tr>
     </table>
     <h3 ng-if="!loading">And the winner is :{{match.winner.name}}</h3>

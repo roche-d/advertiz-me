@@ -26,7 +26,7 @@ button.scissors {
 }
 
 .game{
-    background-color: #080808;
+   // background-color: #080808;
     color:#ffffff;
     text-align: center;
     height:650px;
@@ -63,4 +63,14 @@ button.scissors {
 
 .bottom{
     margin-top: 20px;
+}
+
+.main{
+    background: white url('../image/shifumi-bgd_720_huge.png') ;
+}
+
+@media screen and (max-width: 640px) {
+    .main{
+        background: white url('../image/shifumi-bgd_720.png') ;
+    }
 }
