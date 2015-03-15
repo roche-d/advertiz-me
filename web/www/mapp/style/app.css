@@ -56,3 +56,11 @@ button.scissors {
     background-color: darkgray;
     text-align: center;
 }
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.bottom{
+    margin-top: 20px;
+}

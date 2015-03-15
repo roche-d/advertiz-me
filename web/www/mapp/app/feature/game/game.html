@@ -2,10 +2,16 @@
     <div class="competitor">{{match.competitor.name}}</div>
     <div class="count-set-title">Round</div>
     <div class="count-set" ng-if="countSet<=3">{{countSet}}</div>
-    <div class="button-bar">
-        <img class="btn" ng-click="onClick(value)" ng-repeat="value in choices" ng-src="./image/{{value.img}}.png"/>
+    <div class="selections">
+        <ul class="nav nav-tabs nav-justified">
+            <li role="presentation" ng-repeat="value in choices">
+                <img class="btn"
+                     ng-click="onClick(value)"
+                     ng-src="./image/{{value.img}}.png"/>
+            </li>
+        </ul>
     </div>
-    <div class="button-bar">
-        <img ng-repeat="value in match.player.selection" ng-src="./image/{{value}}_mini.png"/>
+    <div class="selections bottom">
+       <img ng-src="./image/{{value.img}}_mini.png" ng-repeat="value in match.player.selection"/>
     </div>
 </div>
