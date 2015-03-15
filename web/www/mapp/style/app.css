@@ -1,4 +1,7 @@
 
+.navbar-brand{
+    font-family: 'Stardos Stencil', cursive;
+}
 button.rock {
     background-image: "./image/rock.png";
 }
