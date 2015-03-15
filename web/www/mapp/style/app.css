@@ -24,6 +24,9 @@ button.scissors {
     min-height :250px;
     font-size: 10em;
 }
+.count-set-title{
+    font-size: 2em;
+}
 
 .button-bar{
     padding:20px;
