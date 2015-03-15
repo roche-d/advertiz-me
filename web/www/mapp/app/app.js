@@ -17,5 +17,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/game",
         templateUrl: "app/feature/game/game.html",
         controller:"GameController"
+    }).state('match', {
+        url: "/match/:id",
+        templateUrl: "app/feature/match/match.html",
+        controller:"MatchController"
     });
 });

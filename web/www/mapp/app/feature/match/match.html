@@ -1,0 +1,12 @@
+<div class="game">
+    <div ng-if="loading">Waiting for {{competitor}}...<br/>
+    <img src="./image/loader.gif" width="50px"/></div>
+    <div class="count-set" ng-if="countSet<=3">{{countSet}}</div>
+
+    <div class="button-bar">
+        {{competitor}}<img ng-repeat="value in player1" ng-src="./image/{{value}}_mini.png"/>
+    </div>
+    <div class="button-bar">
+        You <img ng-repeat="value in player2" ng-src="./image/{{value}}_mini.png"/>
+    </div>
+</div>

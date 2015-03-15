@@ -9,6 +9,15 @@ button.scissors {
     background-image: "./image/scissors.png";
 }
 
+.btn { transition: all .2s ease-in-out; }
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.selection img{
+
+}
+
 .competitor{
     font-size: 2em;
 }
