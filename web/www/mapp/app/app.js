@@ -10,5 +10,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     }).state('store', {
         url: "/store",
         templateUrl: "app/feature/store/store.html"
+    }).state('game', {
+        url: "/game",
+        templateUrl: "app/feature/game/game.html",
+        controller:"GameController"
     });
 });

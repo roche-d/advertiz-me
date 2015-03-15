@@ -1,0 +1,31 @@
+
+button.rock {
+    background-image: "./image/rock.png";
+}
+button.leaf {
+    background-image: "./image/leaf.png";
+}
+button.scissors {
+    background-image: "./image/scissors.png";
+}
+
+.competitor{
+    font-size: 2em;
+}
+
+.game{
+    background-color: #080808;
+    color:#ffffff;
+    text-align: center;
+    max-width: 30%;
+}
+
+.count-set{
+    min-height :250px;
+    font-size: 10em;
+}
+
+.button-bar{
+    padding:20px;
+    margin:20px;
+}
