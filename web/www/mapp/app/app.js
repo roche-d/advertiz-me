@@ -19,5 +19,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/match/:id",
         templateUrl: "app/feature/match/match.html",
         controller:"MatchController"
+    }).state('loader', {
+        url: "/loader",
+        templateUrl: "app/feature/loader/loader.html",
+        controller:"LoaderController"
     });
 });
