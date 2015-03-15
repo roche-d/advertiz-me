@@ -16,7 +16,7 @@ mongoose.model( 'Todo', Todo );
 */
 // Clever Cloud connection
 // mongoose.connect( 'mongodb://db_username:db_password@db_host/db_name' );
-    mongoose.connect('mongodb://localhost/advertiz-me');
+    mongoose.connect('mongodb://db_username:db_password@db_host//advertiz-me');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, "BDD error:"));
 db.once('open', function () {
