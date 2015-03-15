@@ -7,9 +7,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/",
         templateUrl: "app/feature/home/home.html",
         controller: "HomeController"
-    }).state('store', {
-        url: "/store",
-        templateUrl: "app/feature/store/store.html"
+    }).state('login', {
+        url: "/login",
+        templateUrl: "app/feature/login/login.html"
+    }).state('game_panel', {
+        url: "/game_panel",
+        templateUrl: "app/feature/login/login.html"
     }).state('game', {
         url: "/game",
         templateUrl: "app/feature/game/game.html",
