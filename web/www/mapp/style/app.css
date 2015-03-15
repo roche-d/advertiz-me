@@ -13,11 +13,10 @@
 }
 
 .game{
-   // background-color: #080808;
     color:#ffffff;
     text-align: center;
     height:650px;
-    padding: 15px;
+   // padding: 15px;
 }
 .selections{
     margin-left: auto;
