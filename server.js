@@ -7,7 +7,7 @@ var express = require('express'),
     game = express(),
     server = require('http').createServer(app);
 
-GameServiceProcess = require("./game.js");
+GameServiceProcess = require("./gameController.js");
 
 GameServiceProcess.startGame(game);
 
