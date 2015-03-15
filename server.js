@@ -27,7 +27,7 @@ var credentials = {key: privateKey, cert: certificate};
 // Serveur HTTPS
 var httpsServer = https.createServer(credentials, app);
 
-
+// POST FACEBOOK
 app.post('/fapp/*', function(req, res) {
     res.sendfile(__dirname + '/web/www/fapp/index.html');
 });
