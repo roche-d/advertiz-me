@@ -1,22 +1,31 @@
-angular.module('app').controller("MatchController", function ($scope,$http,$state,$interval) {
+angular.module('app').controller("MatchController", function ($scope, $http, $state, $interval, $stateParams,$location) {
 
-    $scope.competitor = "Noel_2412";
     $scope.loading = true;
 
-    var stop;
-    $scope.poll = function() {
-        if ( angular.isDefined(stop) ) return;
+    $scope.match = {
+        id: $stateParams.id,
+        player: {name: "You", selection: [{img: 'rock'}, {img: 'leaf'}, {img: 'scissors'}]},
+        competitor: {name: "Noel_2412", selection: [{img: 'scissors'}, {img: 'scissors'}, {img: 'leaf'}]}
+    };
 
-        stop = $interval(function() {
-            $http.get("https://battlecheap.cleverapps.io/match/"+$state.params.id).then(function(){
-                if(data.end){
+    $scope.goToHome = function () {
+        $location.path("/");
+    };
+
+    var stop;
+    $scope.poll = function () {
+        if (angular.isDefined(stop)) return;
+
+        stop = $interval(function () {
+            $http.get("https://battlecheap.cleverapps.io/match/" + $scope.match.id).then(function () {
+                if (data.end) {
                     $scope.stopFight();
                 }
             });
         }, 500);
     };
 
-    $scope.stopFight = function() {
+    $scope.stopFight = function () {
         if (angular.isDefined(stop)) {
             $interval.cancel(stop);
             stop = undefined;
@@ -24,7 +33,7 @@ angular.module('app').controller("MatchController", function ($scope,$http,$stat
         $scope.loading = false;
     };
 
-    $scope.$on('$destroy', function() {
+    $scope.$on('$destroy', function () {
         // Make sure that the interval is destroyed too
         $scope.stopFight();
     });

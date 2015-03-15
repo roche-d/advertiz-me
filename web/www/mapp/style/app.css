@@ -32,6 +32,11 @@ button.scissors {
     height:650px;
     padding: 15px;
 }
+.selections{
+    margin-left: auto;
+    margin-right: auto;
+
+}
 
 .count-set{
     min-height :250px;

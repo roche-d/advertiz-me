@@ -1,12 +1,23 @@
 <div class="game">
-    <h3 ng-if="loading">Waiting for {{competitor}}...<h3/>
+    <h3 ng-if="loading">Waiting for {{match.competitor.name}}...</h3>
     <img src="./image/loader.gif" width="50px"/>
+
     <h3>{{countSet}}</h3>
 
-    <h3 class="button-bar">
-        {{competitor}}<img ng-repeat="value in player1" ng-src="./image/{{value}}_mini.png"/>
-    </h3>
-    <h3 class="button-bar">
-        You <img ng-repeat="value in player2" ng-src="./image/{{value}}_mini.png"/>
-    </h3>
+    <table class="selections"  ng-if="!loading">
+        <tr>
+            <td><h3>{{match.competitor.name}}</h3></td>
+            <td><img ng-src="./image/{{match.competitor.selection[0].img}}_mini.png"/></td>
+            <td><img ng-src="./image/{{match.competitor.selection[1].img}}_mini.png"/></td>
+            <td><img ng-src="./image/{{match.competitor.selection[2].img}}_mini.png"/></td>
+        </tr>
+        <tr>
+            <td><h3> {{match.player.name}}</h3></td>
+            <td><img ng-src="./image/{{match.player.selection[0].img}}_mini.png"/></td>
+            <td><img ng-src="./image/{{match.player.selection[1].img}}_mini.png"/></td>
+            <td><img ng-src="./image/{{match.player.selection[2].img}}_mini.png"/></td>
+        </tr>
+    </table>
+
+    <button type="button" class="btn btn-default" ng-click="goToHome()">Back</button>
 </div>
