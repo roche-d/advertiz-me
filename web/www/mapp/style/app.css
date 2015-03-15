@@ -2,23 +2,10 @@
 .navbar-brand{
     font-family: 'Stardos Stencil', cursive;
 }
-button.rock {
-    background-image: "./image/rock.png";
-}
-button.leaf {
-    background-image: "./image/leaf.png";
-}
-button.scissors {
-    background-image: "./image/scissors.png";
-}
 
 .btn { transition: all .2s ease-in-out; }
 .btn:hover {
     transform: scale(1.1);
-}
-
-.selection img{
-
 }
 
 .competitor{
@@ -73,4 +60,9 @@ button.scissors {
     .main{
         background: white url('../image/shifumi-bgd_720.png') ;
     }
+}
+
+.centered{
+    float: none;
+    margin: 0 auto;
 }

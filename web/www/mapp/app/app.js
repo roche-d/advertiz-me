@@ -27,5 +27,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 app.value("isMobile",function(){
-    return (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()))=="device";
+    return (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
 }());
