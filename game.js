@@ -4,6 +4,8 @@
 
 module.exports.startGame = function(game) {
 
+
+
     game.get('/', function (req, res) {
         res.send('HELLOW :)');
         console.log("logged on game");
