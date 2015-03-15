@@ -1,6 +1,6 @@
-angular.module('app').controller("GameController", function ($scope, $http, $location, $stateParams) {
+angular.module('app').controller("GameController", function ($scope, $http, $location, $stateParams,$rootScope) {
 
-    $scope.choices = [{img: "rock"}, {img: "leaf"}, {img: "scissors"}];
+    $scope.choices = [1,2,3];
     $scope.countSet = 1;
 
     $scope.match = {
@@ -14,9 +14,17 @@ angular.module('app').controller("GameController", function ($scope, $http, $loc
         value.round = $scope.countSet;
         $scope.countSet++;
         if ($scope.countSet === 4) {
-            $http.post("https://battlecheap.cleverapps.io/match/" + $scope.match.id, $scope.match);
+            $http.post("https://battlecheap.cleverapps.io/match/" + $scope.match.id+"/"+$rootScope.user.id, $scope.match);
             $location.path("/match/" + $scope.match.id);
         }
     };
 
+});
+
+angular.module('app').filter("images", function() {
+    return function(choice) {
+        if (choice === 1)            return "rock"
+        else if (choice === 2)       return "leaf";
+        else if (choice === 3)       return "scissors";
+    };
 });

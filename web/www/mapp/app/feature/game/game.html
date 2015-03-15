@@ -7,11 +7,11 @@
             <li role="presentation" ng-repeat="value in choices">
                 <img class="btn"
                      ng-click="onClick(value)"
-                     ng-src="./image/{{value.img}}.png"/>
+                     ng-src="./image/{{value | images}}.png"/>
             </li>
         </ul>
     </div>
     <div class="selections bottom">
-       <img ng-src="./image/{{value.img}}_mini.png" ng-repeat="value in match.player.selection track by $index"/>
+       <img ng-src="./image/{{value | images}}_mini.png" ng-repeat="value in match.player.selection track by $index"/>
     </div>
 </div>

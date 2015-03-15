@@ -9,10 +9,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: "HomeController"
     }).state('login', {
         url: "/login",
-        templateUrl: "app/feature/login/login.html"
-    }).state('game_panel', {
-        url: "/game_panel",
-        templateUrl: "app/feature/login/login.html"
+        templateUrl: "app/feature/login/login.html",
+        controller:"LoginController"
     }).state('game', {
         url: "/game",
         templateUrl: "app/feature/game/game.html",

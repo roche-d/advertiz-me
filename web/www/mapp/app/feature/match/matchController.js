@@ -1,11 +1,11 @@
-angular.module('app').controller("MatchController", function ($scope, $http, $state, $interval, $stateParams,$location) {
+angular.module('app').controller("MatchController", function ($scope, $http, $state, $interval, $stateParams, $location) {
 
     $scope.loading = true;
 
     $scope.match = {
         id: $stateParams.id,
-        player: {name: "You", selection: [{img: 'rock'}, {img: 'leaf'}, {img: 'scissors'}]},
-        competitor: {name: "Noel_2412", selection: [{img: 'scissors'}, {img: 'scissors'}, {img: 'leaf'}]}
+        player: {name: "You", selection: [1, 2, 3]},
+        competitor: {name: "Noel_2412", selection: [1, 3, 1]}
     };
 
     $scope.goToHome = function () {
