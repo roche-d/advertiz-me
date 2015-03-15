@@ -9,13 +9,9 @@ module.exports.startGame = function(game) {
         console.log("logged on game");
     });
 
-    if (1 === 2) {
-
-
-        game.on('mount', function (parent) {
-            console.log("game started !");
-        });
-    }
+    game.on('mount', function (parent) {
+        console.log("game started !");
+    });
+}
 
     console.log("ended game js");
-}

@@ -12,7 +12,7 @@ GameServiceProcess = require("./game.js");
 GameServiceProcess.startGame(game);
 
 
-
+// CODE POUR HTTPS
 var fs = require('fs');
 var https = require('https');
 try {
@@ -24,11 +24,13 @@ try {
 
 var credentials = {key: privateKey, cert: certificate};
 
-// your express configuration here
-
+// Serveur HTTPS
 var httpsServer = https.createServer(credentials, app);
 
 
+app.post('/fapp/*', function(req, res) {
+    res.sendfile(__dirname + '/web/www/fapp/index.html');
+});
 
 
 app.use(['/game/*'], game);
