@@ -11,6 +11,7 @@ GameServiceProcess = require("./game.js");
 
 GameServiceProcess.startGame(game);
 
+require('./db');
 
 // CODE POUR HTTPS
 var fs = require('fs');
