@@ -1,11 +1,11 @@
 <div class="game">
-    <div class="competitor">{{competitor}}</div>
+    <div class="competitor">{{match.competitor.name}}</div>
     <div class="count-set-title">Round</div>
     <div class="count-set" ng-if="countSet<=3">{{countSet}}</div>
     <div class="button-bar">
         <img class="btn" ng-click="onClick(value)" ng-repeat="value in choices" ng-src="./image/{{value.img}}.png"/>
     </div>
     <div class="button-bar">
-        <img ng-repeat="value in selection" ng-src="./image/{{value}}_mini.png"/>
+        <img ng-repeat="value in match.player.selection" ng-src="./image/{{value}}_mini.png"/>
     </div>
 </div>
