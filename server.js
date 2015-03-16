@@ -19,7 +19,6 @@ var models = require('./db')();
 
 GameServiceProcess.startGame(game, models);
 
-//var p = new models.Play();
 
 // CODE POUR HTTPS
 var fs = require('fs');

@@ -10,14 +10,16 @@ module.exports = function () {
 //updated_at : Date
 
     var PlayerSchema = new Schema({
-        name: String
+        name: {type: String, unique: true}
     }) ;
 
     var PlaySchema = new Schema({
         players: [PlayerSchema],
         results: [Number],
         actions: Schema.Types.Mixed,
-        turn: Number
+        turn: Number,
+        winner: String,
+        awaiting: Boolean
     });
 
     PlaySchema.methods.Winner = function () {
@@ -46,20 +48,19 @@ module.exports = function () {
     }
 
     PlaySchema.methods.PlayAction = function (playername, action) {
+        console.log("play called !");
         var p = this.isInGame(playername);
-        if (p === -1 || this.turn === 3 || this.WaitingForPlayer()) {
+        if (p === -1 || this.turn === 2 || this.WaitingForPlayer()) {
             console.log("FAIL IN PLAYACTION !");
             return;
         }
-        if (this.actions[p][this.turn] != 0)
+        if (this.actions[p][0] != 0)
         {
             console.log("FAIL already played !");
             return ;
         }
-        this.actions[p][this.turn] = action;
-        if (this.actions[1][this.turn] != 0 && this.actions[0][this.turn] != 0) {
-            console.log("can advance");
-
+        this.actions[p] = action;
+        for (var i = 0; i < 3; i++) {
             var r = WhoWins(this.actions[0][this.turn], this.actions[1][this.turn]);
             if (r === 1) {
                 this.results[0]++;
@@ -68,30 +69,39 @@ module.exports = function () {
             }
             this.turn++;
         }
-    }
+        var w = this.Winner();
+        if (w === null) {
+            this.winner = null;
+        } else {
+            this.winner = w.name;
+        }
+    };
 
     PlaySchema.methods.WaitingForPlayer = function () {
+        console.log("players: "+ this.players);
         return (this.players.length === 1);
-    }
+    };
 
     PlaySchema.methods.Join = function (player, err) {
-        if (this.WaitingForPlayer()) {
+        if (this.awaiting) {
             this.players[1] = player;
+            this.awaiting = false;
             if (err) return err(false);
         } else {
             if (err) return err(true);
         }
-    }
+        this.save();
+    };
 
-    PlaySchema.methods.isInGame = function (playername) {
-        if (this.players[0].name === playername) {
+    PlaySchema.methods.isInGame = function (playerid) {
+        if (this.players[0].id === playerid) {
             return 0;
-        } else if (!this.WaitingForPlayer() && this.players[1].name === playername) {
+        } else if (!this.awaiting && this.players[1].id === playerid) {
             return 1;
         } else {
             return -1;
         }
-    }
+    };
 
     var Models = {
         Player: mongoose.model('Player', PlayerSchema),
@@ -106,6 +116,7 @@ mongoose.connect('mongodb://uo3ki5n2z1wu53o:H9zetP5uuA4NFtpIqmWE@bbx9dqcu2it6mu0
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, "BDD error:"));
 db.once('open', function () {
+    db.db.dropDatabase();
 
     //var Player = mongoose.model('Player', PlayerSchema);
     //var Play =
