@@ -12,7 +12,7 @@ var FindPlayer = function (nametofind, next) {
         console.log("player " + nametofind + " founded");
         next(player);
     })
-};
+}; //plop
 
     var GameErrorHandling = function(err) {
 
